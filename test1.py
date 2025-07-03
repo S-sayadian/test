@@ -1,9 +1,8 @@
 import json
 
 def main(context):
-    print(f"Context: {context.__dict__}")
-    print(f"Request Method: {context.req.method}")
-    print(f"Request Body: {context.req.body}")
+    context.log(f"Request Method: {context.req.method}")  # برای دیباگ
+    context.log(f"Request Body: {context.req.body}")
     if context.req.method == "POST":
         return context.res.json({
             "message": "درخواست POST بدون بدنه با موفقیت دریافت شد!",
